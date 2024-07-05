@@ -12,12 +12,12 @@ def display_menu():
         print(f'{value} - {key}')
 
 
-def get_valid_int(min_value, max_value):
+def get_valid_int(user_str, min_value, max_value):
     is_input_valid = False
     user_input = None
     while not is_input_valid:
         try:
-            user_input = int(input("Please enter: "))
+            user_input = int(input(user_str))
             if user_input < min_value or user_input > max_value:
                 raise ValueError(f'Expected value from {min_value} to {max_value}')
         except ValueError as err:
@@ -29,6 +29,18 @@ def get_valid_int(min_value, max_value):
     return user_input
 
 
+def select_module(repository):
+    modules = repository.get_all_modules()
+    if not modules:
+        print('No modules found.')
+        return None
+    print('Available modules:')
+    for module in modules:
+        print(module)
+
+    choice = get_valid_int("Please choose module: ", )
+
+
 def main():
     db = Database("experiment_edu.db")
     module_repository = ModuleRepository(db)
@@ -37,13 +49,13 @@ def main():
 
     user_input = None
     while user_input != menu_dict['Exit']:
-        print(f'Current module: {str(current_module)}\n')
+        print(f'\nCurrent module: {str(current_module)}\n')
         display_menu()
 
-        user_input = get_valid_int(0, len(menu_dict.items()) - 1)
+        user_input = get_valid_int("Please choose menu item: ", 0, len(menu_dict.items()) - 1)
 
         if user_input == menu_dict['Choose module']:
-            print('hello')
+            current_module = select_module(module_repository)
         else:
             print('goodbye')
 
