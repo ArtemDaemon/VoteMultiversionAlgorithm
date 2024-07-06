@@ -3,6 +3,7 @@ from repos.module_repository import ModuleRepository
 
 menu_dict = {
     'Choose module': 1,
+    'Choose experiment': 2,
     'Exit': 0
 }
 
@@ -12,20 +13,17 @@ def display_menu():
         print(f'{value} - {key}')
 
 
-def get_valid_int(user_str, min_value, max_value):
+def get_valid_int(user_str):
     is_input_valid = False
     user_input = None
     while not is_input_valid:
         try:
             user_input = int(input(user_str))
-            if user_input < min_value or user_input > max_value:
-                raise ValueError(f'Expected value from {min_value} to {max_value}')
+            is_input_valid = True
         except ValueError as err:
             print('Entered value is incorrect! ' + str(err))
         except Exception as err:
             print('Unknown error! ' + str(err))
-        else:
-            is_input_valid = True
     return user_input
 
 
@@ -38,7 +36,8 @@ def select_module(repository):
     for module in modules:
         print(module)
 
-    choice = get_valid_int("Please choose module: ", )
+    choice = get_valid_int("Please choose module: ")
+    return repository.get_module(choice)
 
 
 def main():
@@ -46,20 +45,25 @@ def main():
     module_repository = ModuleRepository(db)
 
     current_module = None
+    current_experiment = None
 
     user_input = None
     while user_input != menu_dict['Exit']:
         print(f'\nCurrent module: {str(current_module)}\n')
         display_menu()
 
-        user_input = get_valid_int("Please choose menu item: ", 0, len(menu_dict.items()) - 1)
+        user_input = get_valid_int("Please choose menu item: ")
 
         if user_input == menu_dict['Choose module']:
             current_module = select_module(module_repository)
-        else:
-            print('goodbye')
+        # elif user_input == menu_dict['Choose experiment']:
 
-    # TODO: Выбрать модуль
+        elif user_input == menu_dict['Exit']:
+            # TODO: Написать прощание
+            print('goodbye')
+        else:
+            print('You enter an incorrect input!')
+
     # TODO: Выбрать эксперимент
     # TODO: Провести эксперимент
 

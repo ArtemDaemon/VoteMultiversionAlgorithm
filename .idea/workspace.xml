@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Вывожу модули и кол-во версий каждого модуля" />
+    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Написал заготовку для выбора модуля">
+      <change afterPath="$PROJECT_DIR$/models/experiment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repos/experiment_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repos/module_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repos/module_repository.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,36 +26,36 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ArtemDaemon"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ArtemDaemon&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ArtemDaemon/VoteMultiversionAlgorithm.git",
-    "accountId": "9504f283-bdac-4da7-853b-7536f1c44f5e"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ArtemDaemon/VoteMultiversionAlgorithm.git&quot;,
+    &quot;accountId&quot;: &quot;9504f283-bdac-4da7-853b-7536f1c44f5e&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2ipNiGlA0sh8gNhf1rYH2RfzTqK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/artem/PycharmProjects/VoteMultiversionAlgorithm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/artem/PycharmProjects/VoteMultiversionAlgorithm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\artem\PycharmProjects\VoteMultiversionAlgorithm" />
@@ -107,11 +113,49 @@
       <option name="project" value="LOCAL" />
       <updated>1720185091488</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Добавил работу с БД и модулями">
+      <option name="closed" value="true" />
+      <created>1720186814034</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720186814034</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Добавил меню">
+      <option name="closed" value="true" />
+      <created>1720188855638</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720188855638</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Написал заготовку для выбора модуля">
+      <option name="closed" value="true" />
+      <created>1720189430155</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720189430155</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Вывожу модули и кол-во версий каждого модуля" />
-    <option name="LAST_COMMIT_MESSAGE" value="Вывожу модули и кол-во версий каждого модуля" />
+    <MESSAGE value="Добавил работу с БД и модулями" />
+    <MESSAGE value="Добавил меню" />
+    <MESSAGE value="Написал заготовку для выбора модуля" />
+    <option name="LAST_COMMIT_MESSAGE" value="Написал заготовку для выбора модуля" />
   </component>
 </project>
