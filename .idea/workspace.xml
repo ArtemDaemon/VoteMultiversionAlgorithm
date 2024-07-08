@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Добавил выбор модуля">
+    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Добавил вывод списка экспериментов для выбранного модуля">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/experiment.py" afterDir="false" />
@@ -145,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720235100106</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добавил вывод списка экспериментов для выбранного модуля">
+      <option name="closed" value="true" />
+      <created>1720423395232</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720423395232</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +173,7 @@
     <MESSAGE value="Добавил меню" />
     <MESSAGE value="Написал заготовку для выбора модуля" />
     <MESSAGE value="Добавил выбор модуля" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил выбор модуля" />
+    <MESSAGE value="Добавил вывод списка экспериментов для выбранного модуля" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил вывод списка экспериментов для выбранного модуля" />
   </component>
 </project>

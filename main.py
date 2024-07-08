@@ -38,7 +38,9 @@ def select_module(repository):
         print(module)
 
     choice = get_valid_int("Please choose module: ")
-    return repository.get_module(choice)
+    if 0 < choice < len(modules):
+        return modules[choice]
+    return None
 
 
 def select_experiment(repository, module):
@@ -48,12 +50,15 @@ def select_experiment(repository, module):
         print('No experiments found.')
         return None
     print('Available experiments:')
-    for experiment in experiments:
-        print(experiment)
+    for index, experiment in enumerate(experiments):
+        print(f'№{index + 1} {experiment}')
 
-    # choice = get_valid_int("Please choose experiment: ")
-    #
-    # return repository.get_module(choice)
+    choice = get_valid_int("Please choose experiment: ")
+    if 0 < choice < len(experiments):
+        chosen_experiment = experiments[choice]
+        chosen_experiment.experiments_data = repository.get_experiment_data_by_name(chosen_experiment.name)
+        return chosen_experiment
+    return None
 
 
 def main():

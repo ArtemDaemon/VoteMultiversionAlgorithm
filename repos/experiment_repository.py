@@ -9,7 +9,6 @@ class ExperimentRepository:
         self.database.connect()
         query = """
             SELECT
-                row_number() OVER () AS experiment_id,
                 experiment_name,
                 COUNT(DISTINCT module_iteration_num) as iterations_count
             FROM
@@ -25,8 +24,30 @@ class ExperimentRepository:
         experiments = []
 
         for row in cursor.fetchall():
-            experiment = Experiment(experiment_id=row[0], name=row[1], iterations_count=row[2])
+            experiment = Experiment(name=row[0], iterations_count=row[1])
             experiments.append(experiment)
 
         self.database.close()
         return experiments
+
+    def get_experiment_data_by_name(self, experiment_name):
+        self.database.connect()
+        query = """
+            SELECT
+                experiment_name,
+                COUNT(DISTINCT module_iteration_num) as iterations_count
+            FROM
+                experiment_data
+            WHERE
+                experiment_name = ?
+            GROUP BY
+                experiment_name
+            ORDER BY
+                iterations_count;
+        """
+        cursor = self.database.execute_query(query, (experiment_name,))
+        row = cursor.fetchone()
+        self.database.close()
+        if row:
+            return Experiment(experiment_id=row[0], name=row[1], iterations_count=row[2])
+        return None
