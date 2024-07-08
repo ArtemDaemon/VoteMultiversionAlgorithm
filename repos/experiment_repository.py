@@ -40,7 +40,6 @@ class ExperimentRepository:
                 SELECT
                     version_name,
                     version_answer,
-                    correct_answer,
                     module_iteration_num
                 FROM
                     experiment_data
@@ -49,7 +48,7 @@ class ExperimentRepository:
             """
             cursor = self.database.execute_query(query, (experiment_name,))
             for row in cursor.fetchall():
-                new_experiment_data = ExperimentData(version_name=row[0], version_answer=row[1], correct_answer=row[2])
+                new_experiment_data = ExperimentData(version_name=row[0], version_answer=row[1])
                 experiment_data.setdefault(row[3], []).append(new_experiment_data)
         finally:
             self.database.close()

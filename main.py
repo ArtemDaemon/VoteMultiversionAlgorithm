@@ -1,3 +1,5 @@
+import math
+
 from database import Database
 from repos.module_repository import ModuleRepository
 from repos.experiment_repository import ExperimentRepository
@@ -60,7 +62,16 @@ def select_experiment(repository, module):
     return None
 
 
-def vote_experiment_data(experiment_data):
+def vote_experiment_data(experiment):
+    n = None
+    t = None
+    for key, value in experiment.experiments_data.items():
+        if n is None:
+            n = len(value)
+        if t is None:
+            t = math.floor((n - 1) / 2)
+
+
     return 'hello'
 
 
@@ -87,11 +98,13 @@ def main():
         if user_input == menu_dict['Choose module']:
             current_module = select_module(module_repository)
             current_experiment = None
+            current_experiment_results = None
         elif user_input == menu_dict['Choose experiment']:
             if current_module is None:
                 print('You should choose module first')
                 continue
             current_experiment = select_experiment(experiment_repository, current_module)
+            current_experiment_results = None
         elif user_input == menu_dict['Vote experiment data']:
             if current_experiment is None:
                 print('You should choose experiment first')

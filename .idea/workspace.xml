@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Добавил нароботку выбора эксперимента">
-      <change afterPath="$PROJECT_DIR$/models/experiment_data.py" afterDir="false" />
+    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Добавил корректный выбор эксперимента и загрузку данных экспериммента">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repos/experiment_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repos/experiment_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repos/module_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repos/module_repository.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +46,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -162,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720424506745</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Добавил корректный выбор эксперимента и загрузку данных экспериммента">
+      <option name="closed" value="true" />
+      <created>1720436093397</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720436093397</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,17 +189,7 @@
     <MESSAGE value="Добавил выбор модуля" />
     <MESSAGE value="Добавил вывод списка экспериментов для выбранного модуля" />
     <MESSAGE value="Добавил нароботку выбора эксперимента" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил нароботку выбора эксперимента" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Добавил корректный выбор эксперимента и загрузку данных экспериммента" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил корректный выбор эксперимента и загрузку данных экспериммента" />
   </component>
 </project>
