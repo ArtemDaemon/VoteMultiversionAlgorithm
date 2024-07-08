@@ -5,6 +5,7 @@ from repos.experiment_repository import ExperimentRepository
 menu_dict = {
     'Choose module': 1,
     'Choose experiment': 2,
+    'Vote experiment data': 3,
     'Exit': 0
 }
 
@@ -38,9 +39,7 @@ def select_module(repository):
         print(module)
 
     choice = get_valid_int("Please choose module: ")
-    if 0 < choice < len(modules):
-        return modules[choice]
-    return None
+    return repository.get_module(choice)
 
 
 def select_experiment(repository, module):
@@ -61,6 +60,10 @@ def select_experiment(repository, module):
     return None
 
 
+def vote_experiment_data(experiment_data):
+    return 'hello'
+
+
 def main():
     db = Database("experiment_edu.db")
     module_repository = ModuleRepository(db)
@@ -68,12 +71,14 @@ def main():
 
     current_module = None
     current_experiment = None
+    current_experiment_results = None
 
     user_input = None
     while user_input != menu_dict['Exit']:
         print('\n')
         print(f'Current module: {str(current_module)}')
         print(f'Current experiment: {str(current_experiment)}')
+        print(f'Current results: {str(current_experiment_results)}')
         print('\n')
         display_menu()
 
@@ -87,13 +92,17 @@ def main():
                 print('You should choose module first')
                 continue
             current_experiment = select_experiment(experiment_repository, current_module)
+        elif user_input == menu_dict['Vote experiment data']:
+            if current_experiment is None:
+                print('You should choose experiment first')
+                continue
+            current_experiment_results = vote_experiment_data(current_experiment)
         elif user_input == menu_dict['Exit']:
             # TODO: Написать прощание
             print('goodbye')
         else:
             print('You enter an incorrect input!')
 
-    # TODO: Выбрать эксперимент
     # TODO: Провести эксперимент
 
 
