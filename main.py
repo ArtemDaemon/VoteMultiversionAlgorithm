@@ -1,5 +1,6 @@
 from database import Database
 from repos.module_repository import ModuleRepository
+from repos.experiment_repository import ExperimentRepository
 
 menu_dict = {
     'Choose module': 1,
@@ -40,24 +41,47 @@ def select_module(repository):
     return repository.get_module(choice)
 
 
+def select_experiment(repository, module):
+    print('It will take some time...')
+    experiments = repository.get_all_experiments(module.module_id)
+    if not experiments:
+        print('No experiments found.')
+        return None
+    print('Available experiments:')
+    for experiment in experiments:
+        print(experiment)
+
+    # choice = get_valid_int("Please choose experiment: ")
+    #
+    # return repository.get_module(choice)
+
+
 def main():
     db = Database("experiment_edu.db")
     module_repository = ModuleRepository(db)
+    experiment_repository = ExperimentRepository(db)
 
     current_module = None
     current_experiment = None
 
     user_input = None
     while user_input != menu_dict['Exit']:
-        print(f'\nCurrent module: {str(current_module)}\n')
+        print('\n')
+        print(f'Current module: {str(current_module)}')
+        print(f'Current experiment: {str(current_experiment)}')
+        print('\n')
         display_menu()
 
         user_input = get_valid_int("Please choose menu item: ")
 
         if user_input == menu_dict['Choose module']:
             current_module = select_module(module_repository)
-        # elif user_input == menu_dict['Choose experiment']:
-
+            current_experiment = None
+        elif user_input == menu_dict['Choose experiment']:
+            if current_module is None:
+                print('You should choose module first')
+                continue
+            current_experiment = select_experiment(experiment_repository, current_module)
         elif user_input == menu_dict['Exit']:
             # TODO: Написать прощание
             print('goodbye')
