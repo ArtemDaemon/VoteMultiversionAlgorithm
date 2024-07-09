@@ -9,6 +9,7 @@ menu_dict = {
     'Choose module': 1,
     'Choose experiment': 2,
     'Vote experiment data': 3,
+    'Show full vote result': 4,
     'Exit': 0
 }
 
@@ -63,25 +64,76 @@ def select_experiment(repository, module):
     return None
 
 
+def check_multiple_seq_counter(equal_seq_counter, t):
+    first_length = equal_seq_counter[0]['length']
+    if first_length < t:
+        return False
+    for i in range(1, len(equal_seq_counter)):
+        if equal_seq_counter[i]['length'] != first_length:
+            return False
+    return True
+
+
+def get_result_index(t, n, output_versions, equal_seq_counter):
+    if len(equal_seq_counter) == 1 and equal_seq_counter[0]['length'] >= t:
+        for i in range(equal_seq_counter[0]['start'],
+                       equal_seq_counter[0]['start'] + equal_seq_counter[0]['length'] + 1):
+            if i in output_versions:
+                return i
+    if (len(equal_seq_counter) == 1 and equal_seq_counter[0]['length'] < t) or (
+            len(equal_seq_counter) > 1 and check_multiple_seq_counter(equal_seq_counter, t)):
+        return n - 1
+    return None
+
+
 def vote_experiment_data(experiment):
-    sample_key = next(iter(experiment.experiment_data))
-    n = len(experiment.experiment_data[sample_key])
+    result = ExperimentResult()
+
+    sample_key = next(iter(experiment.experiments_data))
+    n = len(experiment.experiments_data[sample_key])
     t = math.floor((n - 1) / 2)
     step = math.ceil((n - 1) / (n - t - 1))
+    output_versions = []
 
-    for key, value in experiment.experiment_data.items():
-        output_versions = []
+    for i in range(0, n - 2, step):
+        output_versions.append(i)
 
-        for i in range(0, n - 2, step):
-            output_versions.append(value[i])
+    output_versions.append(n - 1)
 
-        output_versions.append(value[-1])
+    for key, value in experiment.experiments_data.items():
+        equal_seq_counter = []
+        is_last_compare_equal = False
 
-        equal_seq_counter = {}
-
-        for i in range(n - 2):
+        for i in range(n - 1):
             if value[i].version_answer == value[i + 1].version_answer:
-                if
+                if is_last_compare_equal:
+                    equal_seq_counter[len(equal_seq_counter) - 1]['length'] += 1
+                else:
+                    equal_seq_counter.append({
+                        'start': i,
+                        'length': 2
+                    })
+                    is_last_compare_equal = True
+            else:
+                is_last_compare_equal = False
+
+        result_index = get_result_index(t, n, output_versions, equal_seq_counter)
+        if result_index is None and value[n - 2].version_answer == value[n - 1].version_answer:
+            if is_last_compare_equal:
+                equal_seq_counter[len(equal_seq_counter) - 1]['length'] += 1
+            else:
+                equal_seq_counter.append({
+                    'start': n - 2,
+                    'length': 2
+                })
+            result_index = get_result_index(t, n, output_versions, equal_seq_counter)
+
+        if result_index is None:
+            result.add_experiment_iter(key, None, value)
+        else:
+            result.add_experiment_iter(key, value[result_index].version_name, value)
+
+    return result
 
 
 def main():
@@ -98,7 +150,7 @@ def main():
         print('\n')
         print(f'Current module: {str(current_module)}')
         print(f'Current experiment: {str(current_experiment)}')
-        print(f'Current results: {str(current_experiment_results)}')
+        print(f'Current results: \n{str(current_experiment_results)}')
         print('\n')
         display_menu()
 
@@ -119,13 +171,15 @@ def main():
                 print('You should choose experiment first')
                 continue
             current_experiment_results = vote_experiment_data(current_experiment)
+        elif user_input == menu_dict['Show full vote result']:
+            if current_experiment_results is None:
+                print('You should choose Vote menu item first')
+                continue
+            current_experiment_results.print_full_information()
         elif user_input == menu_dict['Exit']:
-            # TODO: Написать прощание
-            print('goodbye')
+            print('Goodbye!')
         else:
             print('You enter an incorrect input!')
-
-    # TODO: Провести эксперимент
 
 
 if __name__ == "__main__":
