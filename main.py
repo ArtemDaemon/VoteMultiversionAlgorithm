@@ -1,6 +1,7 @@
 import math
 
 from database import Database
+from models.experiment_result import ExperimentResult
 from repos.module_repository import ModuleRepository
 from repos.experiment_repository import ExperimentRepository
 
@@ -63,16 +64,24 @@ def select_experiment(repository, module):
 
 
 def vote_experiment_data(experiment):
-    n = None
-    t = None
-    for key, value in experiment.experiments_data.items():
-        if n is None:
-            n = len(value)
-        if t is None:
-            t = math.floor((n - 1) / 2)
+    sample_key = next(iter(experiment.experiment_data))
+    n = len(experiment.experiment_data[sample_key])
+    t = math.floor((n - 1) / 2)
+    step = math.ceil((n - 1) / (n - t - 1))
 
+    for key, value in experiment.experiment_data.items():
+        output_versions = []
 
-    return 'hello'
+        for i in range(0, n - 2, step):
+            output_versions.append(value[i])
+
+        output_versions.append(value[-1])
+
+        equal_seq_counter = {}
+
+        for i in range(n - 2):
+            if value[i].version_answer == value[i + 1].version_answer:
+                if
 
 
 def main():
