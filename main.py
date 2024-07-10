@@ -16,8 +16,8 @@ menu_dict = {
 
 
 def display_menu():
-    for key, value in menu_dict.items():
-        print(f'{value} - {key}')
+    for option, value in menu_dict.items():
+        print(f'{value} - {option}')
 
 
 def get_valid_int(user_str):
@@ -65,7 +65,7 @@ def select_experiment(repository, module):
     return None
 
 
-def get_result_index(t, n, output_versions, equal_seq_counter):
+def get_result_index(t, output_versions, equal_seq_counter):
     greater_than_t = []
     equal_t = []
     less_than_t = []
@@ -80,16 +80,14 @@ def get_result_index(t, n, output_versions, equal_seq_counter):
         less_than_t.append(equal_seq)
 
     if len(greater_than_t) == 1 or len(equal_t) == 1:
-        chosen_array = greater_than_t
-        if len(greater_than_t) != 1:
-            chosen_array = equal_t
+        chosen_array = greater_than_t if len(greater_than_t) == 1 else equal_t
         for i in range(chosen_array[0]['start'],
-                       chosen_array[0]['start'] + chosen_array[0]['length'] + 1):
+                       chosen_array[0]['start'] + chosen_array[0]['length']):
             if i in output_versions:
                 return i
 
     if len(less_than_t) == 1 or (len(greater_than_t) + len(equal_t)) > 1:
-        return n - 1
+        return output_versions[-1]
 
     return None
 
@@ -101,11 +99,7 @@ def vote_experiment_data(experiment):
     n = len(experiment.experiments_data[sample_key])
     t = math.floor((n - 1) / 2)
     step = math.ceil((n - 1) / (n - t - 1))
-    output_versions = []
-
-    for i in range(0, n - 2, step):
-        output_versions.append(i)
-
+    output_versions = list(range(0, n - 1, step))
     output_versions.append(n - 1)
 
     for key, value in experiment.experiments_data.items():
@@ -115,7 +109,7 @@ def vote_experiment_data(experiment):
         for i in range(n - 1):
             if value[i].version_answer == value[i + 1].version_answer:
                 if is_last_compare_equal:
-                    equal_seq_counter[len(equal_seq_counter) - 1]['length'] += 1
+                    equal_seq_counter[-1]['length'] += 1
                 else:
                     equal_seq_counter.append({
                         'start': i,
@@ -129,16 +123,16 @@ def vote_experiment_data(experiment):
                 })
                 is_last_compare_equal = False
 
-        result_index = get_result_index(t, n, output_versions, equal_seq_counter)
+        result_index = get_result_index(t, output_versions, equal_seq_counter)
         if result_index is None and value[n - 2].version_answer == value[n - 1].version_answer:
             if is_last_compare_equal:
-                equal_seq_counter[len(equal_seq_counter) - 1]['length'] += 1
+                equal_seq_counter[-1]['length'] += 1
             else:
                 equal_seq_counter.append({
                     'start': n - 2,
                     'length': 2
                 })
-            result_index = get_result_index(t, n, output_versions, equal_seq_counter)
+            result_index = get_result_index(t, output_versions, equal_seq_counter)
 
         if result_index is None:
             result.add_experiment_iter(key, None, None, value)
@@ -205,10 +199,8 @@ def main():
 if __name__ == "__main__":
     main()
 
-# Сравнить данные по каждому модулю и итерации
-# Повторно вывести результаты по каждому модулю и итерации, добавляя v1
 # Проверить код
-# Вывести результаты по каждому модулю и итерации, добавляя v2
-# Сравнить v1 и v2
+# Проверить все модули и эксперименты
+# Провести анализ
 # Написать док комменты
 # Написать комментарии для каждой строчки алгоритма
