@@ -59,7 +59,7 @@ def select_experiment(repository, module):
 
     choice = get_valid_int("Please choose experiment: ")
     if 0 < choice < len(experiments):
-        chosen_experiment = experiments[choice]
+        chosen_experiment = experiments[choice - 1]
         chosen_experiment.experiments_data = repository.get_experiment_data_by_name(chosen_experiment.name)
         return chosen_experiment
     return None
