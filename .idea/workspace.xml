@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Добавил выгрузку результат голосования в БД">
+    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Исправил выбор номера эксперимента">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,7 @@
       <recent name="C:\Users\artem\PycharmProjects\VoteMultiversionAlgorithm" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\artem\PycharmProjects\VoteMultiversionAlgorithm\sql" />
       <recent name="C:\Users\artem\PycharmProjects\VoteMultiversionAlgorithm" />
       <recent name="C:\Users\artem\PycharmProjects\VoteMultiversionAlgorithm\database" />
     </key>
@@ -207,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720586426519</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Исправил выбор номера эксперимента">
+      <option name="closed" value="true" />
+      <created>1720587731284</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1720587731284</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,6 +245,18 @@
     <MESSAGE value="Дописал функцию голосования" />
     <MESSAGE value="Добавил наработку на сохранение результатов голосования в БД" />
     <MESSAGE value="Добавил выгрузку результат голосования в БД" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил выгрузку результат голосования в БД" />
+    <MESSAGE value="Исправил выбор номера эксперимента" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправил выбор номера эксперимента" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -58,32 +58,39 @@ def select_experiment(repository, module):
         print(f'№{index + 1} {experiment}')
 
     choice = get_valid_int("Please choose experiment: ")
-    if 0 < choice < len(experiments):
+    if 0 < choice <= len(experiments):
         chosen_experiment = experiments[choice - 1]
         chosen_experiment.experiments_data = repository.get_experiment_data_by_name(chosen_experiment.name)
         return chosen_experiment
     return None
 
 
-def check_multiple_seq_counter(equal_seq_counter, t):
-    first_length = equal_seq_counter[0]['length']
-    if first_length < t:
-        return False
-    for i in range(1, len(equal_seq_counter)):
-        if equal_seq_counter[i]['length'] != first_length:
-            return False
-    return True
-
-
 def get_result_index(t, n, output_versions, equal_seq_counter):
-    if len(equal_seq_counter) == 1 and equal_seq_counter[0]['length'] >= t:
-        for i in range(equal_seq_counter[0]['start'],
-                       equal_seq_counter[0]['start'] + equal_seq_counter[0]['length'] + 1):
+    greater_than_t = []
+    equal_t = []
+    less_than_t = []
+
+    for equal_seq in equal_seq_counter:
+        if equal_seq['length'] > t:
+            greater_than_t.append(equal_seq)
+            continue
+        if equal_seq['length'] == t:
+            equal_t.append(equal_seq)
+            continue
+        less_than_t.append(equal_seq)
+
+    if len(greater_than_t) == 1 or len(equal_t) == 1:
+        chosen_array = greater_than_t
+        if len(greater_than_t) != 1:
+            chosen_array = equal_t
+        for i in range(chosen_array[0]['start'],
+                       chosen_array[0]['start'] + chosen_array[0]['length'] + 1):
             if i in output_versions:
                 return i
-    if (len(equal_seq_counter) == 1 and equal_seq_counter[0]['length'] < t) or (
-            len(equal_seq_counter) > 1 and check_multiple_seq_counter(equal_seq_counter, t)):
+
+    if len(less_than_t) == 1 or (len(greater_than_t) + len(equal_t)) > 1:
         return n - 1
+
     return None
 
 
@@ -116,6 +123,10 @@ def vote_experiment_data(experiment):
                     })
                     is_last_compare_equal = True
             else:
+                equal_seq_counter.append({
+                    'start': i,
+                    'length': 1
+                })
                 is_last_compare_equal = False
 
         result_index = get_result_index(t, n, output_versions, equal_seq_counter)
@@ -194,8 +205,10 @@ def main():
 if __name__ == "__main__":
     main()
 
-# Выводить данные своего алгоритма
 # Сравнить данные по каждому модулю и итерации
+# Повторно вывести результаты по каждому модулю и итерации, добавляя v1
 # Проверить код
+# Вывести результаты по каждому модулю и итерации, добавляя v2
+# Сравнить v1 и v2
 # Написать док комменты
 # Написать комментарии для каждой строчки алгоритма
