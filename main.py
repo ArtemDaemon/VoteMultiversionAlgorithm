@@ -1,8 +1,8 @@
 import math
 
 from database import Database
-from models.experiment_result import ExperimentResult
-from repos.experiment_result_repository import ExperimentResultRepository
+from models.vote_result import VoteResult
+from repos.vote_result_repository import VoteResultRepository
 from repos.module_repository import ModuleRepository
 from repos.experiment_repository import ExperimentRepository
 
@@ -88,7 +88,7 @@ def get_result_index(t, n, output_versions, equal_seq_counter):
 
 
 def vote_experiment_data(experiment):
-    result = ExperimentResult()
+    result = VoteResult()
 
     sample_key = next(iter(experiment.experiments_data))
     n = len(experiment.experiments_data[sample_key])
@@ -130,33 +130,34 @@ def vote_experiment_data(experiment):
             result_index = get_result_index(t, n, output_versions, equal_seq_counter)
 
         if result_index is None:
-            result.add_experiment_iter(key, None, value)
+            result.add_experiment_iter(key, None, None, value)
         else:
-            result.add_experiment_iter(key, value[result_index].version_name, value)
+            result.add_experiment_iter(key, value[result_index].version_name, value[result_index].version_answer, value)
 
     return result
 
 
-def save_experiment_results(repository, module, experiment, experiment_results):
-    repository.
+def save_vote_results(repository, module, experiment, vote_results):
+    repository.save_vote_results(module.name, experiment.name, vote_results)
+    print('Vote results loaded to DB')
 
 
 def main():
     db = Database("experiment_edu.db")
     module_repository = ModuleRepository(db)
     experiment_repository = ExperimentRepository(db)
-    experiment_result_repository = ExperimentResultRepository(db)
+    vote_result_repository = VoteResultRepository(db)
 
     current_module = None
     current_experiment = None
-    current_experiment_results = None
+    current_vote_results = None
 
     user_input = None
     while user_input != menu_dict['Exit']:
         print('\n')
         print(f'Current module: {str(current_module)}')
         print(f'Current experiment: {str(current_experiment)}')
-        print(f'Current results: \n{str(current_experiment_results)}')
+        print(f'Current results: \n{str(current_vote_results)}')
         print('\n')
         display_menu()
 
@@ -165,25 +166,25 @@ def main():
         if user_input == menu_dict['Choose module']:
             current_module = select_module(module_repository)
             current_experiment = None
-            current_experiment_results = None
+            current_vote_results = None
         elif user_input == menu_dict['Choose experiment']:
             if current_module is None:
                 print('You should choose module first')
                 continue
             current_experiment = select_experiment(experiment_repository, current_module)
-            current_experiment_results = None
+            current_vote_results = None
         elif user_input == menu_dict['Vote experiment data']:
             if current_experiment is None:
                 print('You should choose experiment first')
                 continue
-            current_experiment_results = vote_experiment_data(current_experiment)
-            save_experiment_results(experiment_result_repository, current_module, current_experiment,
-                                    current_experiment_results)
+            current_vote_results = vote_experiment_data(current_experiment)
+            save_vote_results(vote_result_repository, current_module, current_experiment,
+                              current_vote_results)
         elif user_input == menu_dict['Show full vote result']:
-            if current_experiment_results is None:
+            if current_vote_results is None:
                 print('You should choose Vote menu item first')
                 continue
-            current_experiment_results.print_full_information()
+            current_vote_results.print_full_information()
         elif user_input == menu_dict['Exit']:
             print('Goodbye!')
         else:

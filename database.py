@@ -18,3 +18,9 @@ class Database:
         cursor.execute(query, params)
         self.connection.commit()
         return cursor
+
+    def execute_many(self, query, params):
+        cursor = self.connection.cursor()
+        cursor.executemany(query, params)
+        self.connection.commit()
+        return cursor
