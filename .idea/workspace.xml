@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Написал наработку на метод голосования">
+    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Дописал функцию голосования">
+      <change afterPath="$PROJECT_DIR$/repos/experiment_result_repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +51,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/artem/PycharmProjects/VoteMultiversionAlgorithm&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/artem/PycharmProjects/VoteMultiversionAlgorithm/temp&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\artem\PycharmProjects\VoteMultiversionAlgorithm\temp" />
       <recent name="C:\Users\artem\PycharmProjects\VoteMultiversionAlgorithm" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -174,7 +177,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720439564691</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Пишу наработку функции голосования">
+      <option name="closed" value="true" />
+      <created>1720508138614</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720508138614</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Дописал функцию голосования">
+      <option name="closed" value="true" />
+      <created>1720516415530</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720516415530</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +217,8 @@
     <MESSAGE value="Добавил нароботку выбора эксперимента" />
     <MESSAGE value="Добавил корректный выбор эксперимента и загрузку данных экспериммента" />
     <MESSAGE value="Написал наработку на метод голосования" />
-    <option name="LAST_COMMIT_MESSAGE" value="Написал наработку на метод голосования" />
+    <MESSAGE value="Пишу наработку функции голосования" />
+    <MESSAGE value="Дописал функцию голосования" />
+    <option name="LAST_COMMIT_MESSAGE" value="Дописал функцию голосования" />
   </component>
 </project>

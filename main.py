@@ -2,6 +2,7 @@ import math
 
 from database import Database
 from models.experiment_result import ExperimentResult
+from repos.experiment_result_repository import ExperimentResultRepository
 from repos.module_repository import ModuleRepository
 from repos.experiment_repository import ExperimentRepository
 
@@ -136,10 +137,15 @@ def vote_experiment_data(experiment):
     return result
 
 
+def save_experiment_results(repository, module, experiment, experiment_results):
+    repository.
+
+
 def main():
     db = Database("experiment_edu.db")
     module_repository = ModuleRepository(db)
     experiment_repository = ExperimentRepository(db)
+    experiment_result_repository = ExperimentResultRepository(db)
 
     current_module = None
     current_experiment = None
@@ -171,6 +177,8 @@ def main():
                 print('You should choose experiment first')
                 continue
             current_experiment_results = vote_experiment_data(current_experiment)
+            save_experiment_results(experiment_result_repository, current_module, current_experiment,
+                                    current_experiment_results)
         elif user_input == menu_dict['Show full vote result']:
             if current_experiment_results is None:
                 print('You should choose Vote menu item first')
@@ -184,3 +192,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Выводить данные своего алгоритма
+# Сравнить данные по каждому модулю и итерации
+# Проверить код
+# Написать док комменты
+# Написать комментарии для каждой строчки алгоритма
