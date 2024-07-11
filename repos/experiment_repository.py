@@ -40,7 +40,7 @@ class ExperimentRepository:
                 SELECT
                     version_name,
                     version_answer,
-                    correct_answer
+                    correct_answer,
                     module_iteration_num
                 FROM
                     experiment_data

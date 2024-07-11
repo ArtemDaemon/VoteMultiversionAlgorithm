@@ -1,14 +1,12 @@
-import math
-
-
 class VoteResult:
     def __init__(self):
         self.vote_data_results = {}
 
-    def add_experiment_iter(self, experiment_iter_key, result_version, result_value, experiment_data):
+    def add_experiment_iter(self, experiment_iter_key, result_version, result_value, correct_answer, experiment_data):
         self.vote_data_results[experiment_iter_key] = {
             'result_version': result_version,
             'result_value': result_value,
+            'correct_answer': correct_answer,
             'experiment_data': experiment_data
         }
 
@@ -27,5 +25,5 @@ class VoteResult:
             results[result_version] += 1
 
         for key, value in results.items():
-            result_string += f'{key} - selected in {value} iterations ({math.floor(value / total * 100)}%)\n'
+            result_string += f'{key} - selected in {value} iterations ({round(value / total * 100, 1)}%)\n'
         return result_string

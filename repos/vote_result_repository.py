@@ -8,12 +8,11 @@ class VoteResultRepository:
             query = """
                         INSERT INTO
                             vote_result_2
-                            (experiment_data_id, module, experiment, iter, result)
-                        VALUES (?,?,?,?,?);
+                            (module, experiment, iter, result)
+                        VALUES (?,?,?,?);
                     """
             params = [
-                (value['experiment_data'][0].experiment_data_id, module_name, experiment_name, key,
-                 value['result_value'])
+                (module_name, experiment_name, key, value['result_value'])
                 for key, value in vote_results.vote_data_results.items()
             ]
             self.database.execute_many(query, params)

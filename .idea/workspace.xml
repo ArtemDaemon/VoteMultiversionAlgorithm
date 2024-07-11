@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Внес доработки в код">
+    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Добавляю функцию для анализа">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/experiment_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/experiment_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/vote_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/vote_result.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repos/experiment_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repos/experiment_repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repos/vote_result_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repos/vote_result_repository.py" afterDir="false" />
     </list>
@@ -47,16 +47,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/artem/PycharmProjects/VoteMultiversionAlgorithm/temp&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/artem/PycharmProjects/VoteMultiversionAlgorithm/temp",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\artem\PycharmProjects\VoteMultiversionAlgorithm\temp" />
@@ -236,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720600873689</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Добавляю функцию для анализа">
+      <option name="closed" value="true" />
+      <created>1720672963460</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1720672963460</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,17 +275,7 @@
     <MESSAGE value="Исправил выбор номера эксперимента" />
     <MESSAGE value="Переписал функцию получения корректного индекса" />
     <MESSAGE value="Внес доработки в код" />
-    <option name="LAST_COMMIT_MESSAGE" value="Внес доработки в код" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>152</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Добавляю функцию для анализа" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавляю функцию для анализа" />
   </component>
 </project>

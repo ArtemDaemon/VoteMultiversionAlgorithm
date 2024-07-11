@@ -135,10 +135,12 @@ def vote_experiment_data(experiment):
                 })
             result_index = get_result_index(t, output_versions, equal_seq_counter)
 
+        correct_answer = value[0].correct_answer
         if result_index is None:
-            result.add_experiment_iter(key, None, None, value)
+            result.add_experiment_iter(key, None, None, correct_answer, value)
         else:
-            result.add_experiment_iter(key, value[result_index].version_name, value[result_index].version_answer, value)
+            result.add_experiment_iter(key, value[result_index].version_name, value[result_index].version_answer,
+                                       correct_answer, value)
 
     return result
 
@@ -150,7 +152,26 @@ def save_vote_results(repository, module, experiment, vote_results):
 
 
 def run_vote_analysis(vote_results):
-    print('hello')
+    total = len(vote_results.vote_data_results)
+    correct_counter = 0
+    none_counter = 0
+    failed_counter = 0
+    for key, value in vote_results.vote_data_results.items():
+        if value['result_value'] == value['correct_answer']:
+            correct_counter += 1
+            continue
+        if value['result_value'] is None:
+            none_counter += 1
+            continue
+        failed_counter += 1
+
+    print('Vote analysis:')
+    print(f'The algorithm find correct answer in {correct_counter} experiment iterations '
+          f'({round(correct_counter / total * 100, 1)}%)')
+    print(f'The algorithm find wrong answer in {failed_counter} experiment iterations '
+          f'({round(failed_counter / total * 100, 1)}%)')
+    print(f"The algorithm could not find any answer in {none_counter} experiment iterations "
+          f'({round(none_counter / total * 100, 1)}%)')
 
 
 def main():
@@ -197,7 +218,10 @@ def main():
                 continue
             current_vote_results.print_full_information()
         elif user_input == menu_dict['Run vote analysis']:
-            run_vote_analysis(vote_result_repository)
+            if current_vote_results is None:
+                print('You should choose Vote menu item first')
+                continue
+            run_vote_analysis(current_vote_results)
         elif user_input == menu_dict['Exit']:
             print('Goodbye!')
         else:
@@ -207,6 +231,5 @@ def main():
 if __name__ == "__main__":
     main()
 
-# Провести анализ
 # Написать док комменты
 # Написать комментарии для каждой строчки алгоритма
