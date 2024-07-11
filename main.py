@@ -11,6 +11,7 @@ menu_dict = {
     'Choose experiment': 2,
     'Vote experiment data': 3,
     'Show full vote result': 4,
+    'Run vote analysis': 5,
     'Exit': 0
 }
 
@@ -143,8 +144,13 @@ def vote_experiment_data(experiment):
 
 
 def save_vote_results(repository, module, experiment, vote_results):
+    repository.delete_vote_results(module.name, experiment.name)
     repository.save_vote_results(module.name, experiment.name, vote_results)
     print('Vote results loaded to DB')
+
+
+def run_vote_analysis(vote_results):
+    print('hello')
 
 
 def main():
@@ -190,6 +196,8 @@ def main():
                 print('You should choose Vote menu item first')
                 continue
             current_vote_results.print_full_information()
+        elif user_input == menu_dict['Run vote analysis']:
+            run_vote_analysis(vote_result_repository)
         elif user_input == menu_dict['Exit']:
             print('Goodbye!')
         else:
@@ -199,8 +207,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# Проверить код
-# Проверить все модули и эксперименты
 # Провести анализ
 # Написать док комменты
 # Написать комментарии для каждой строчки алгоритма
