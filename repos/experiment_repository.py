@@ -4,9 +4,20 @@ from models.experiment_data import ExperimentData
 
 class ExperimentRepository:
     def __init__(self, database):
+        """
+        Initialize an ExperimentRepository object.
+
+        :param database: The database connection to use for retrieving experiment data.
+        """
         self.database = database
 
     def get_all_experiments(self, module_id):
+        """
+        Retrieve all experiments associated with a given module.
+
+        :param module_id: The ID of the module whose experiments are to be retrieved.
+        :return: A list of Experiment objects, each representing an experiment and its iteration count.
+        """
         self.database.connect()
         experiments = []
         try:
@@ -33,6 +44,12 @@ class ExperimentRepository:
         return experiments
 
     def get_experiment_data_by_name(self, experiment_name):
+        """
+        Retrieve data for a specific experiment by its name.
+
+        :param experiment_name: The name of the experiment whose data is to be retrieved.
+        :return: A dictionary where keys are iteration numbers and values are lists of ExperimentData objects.
+        """
         self.database.connect()
         experiment_data = {}
         try:

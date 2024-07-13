@@ -3,9 +3,19 @@ from models.module import Module
 
 class ModuleRepository:
     def __init__(self, database):
+        """
+        Initialize a ModuleRepository object.
+
+        :param database: The database connection to use for retrieving module data.
+        """
         self.database = database
 
     def get_all_modules(self):
+        """
+        Retrieve all modules from the database.
+
+        :return: A list of Module objects, each representing a module and its version count.
+        """
         self.database.connect()
         modules = []
         try:
@@ -29,6 +39,12 @@ class ModuleRepository:
         return modules
 
     def get_module(self, module_id):
+        """
+        Retrieve a specific module by its ID.
+
+        :param module_id: The ID of the module to retrieve.
+        :return: A Module object representing the retrieved module, or None if not found.
+        """
         self.database.connect()
         try:
             query = """
