@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Добавил анализ">
+    <list default="true" id="fa4cc934-8d72-4a0e-bd62-eb0e99433516" name="Changes" comment="Внес правки в метод голосования. Добавил doc-strings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/experiment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/experiment_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/experiment_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/module.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/vote_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/vote_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repos/experiment_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repos/experiment_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repos/module_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repos/module_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repos/vote_result_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repos/vote_result_repository.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +47,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -256,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720674807935</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Внес правки в метод голосования. Добавил doc-strings">
+      <option name="closed" value="true" />
+      <created>1720851214300</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1720851214300</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,6 +291,7 @@
     <MESSAGE value="Внес доработки в код" />
     <MESSAGE value="Добавляю функцию для анализа" />
     <MESSAGE value="Добавил анализ" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил анализ" />
+    <MESSAGE value="Внес правки в метод голосования. Добавил doc-strings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Внес правки в метод голосования. Добавил doc-strings" />
   </component>
 </project>

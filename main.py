@@ -270,6 +270,8 @@ def main():
     experiment_repository = ExperimentRepository(db)
     vote_result_repository = VoteResultRepository(db)
 
+    vote_result_repository.create_table()
+
     current_module = None
     current_experiment = None
     current_vote_results = None

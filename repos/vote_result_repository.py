@@ -51,3 +51,21 @@ class VoteResultRepository:
             self.database.execute_query(query, (module_name, experiment_name,))
         finally:
             self.database.close()
+
+    def create_table(self):
+        """
+        Create the vote_result_2 table in the database if it does not already exist.
+        """
+        self.database.connect()
+        try:
+            query = """
+                        CREATE TABLE IF NOT EXISTS "vote_result_2" (
+                            "module"	TEXT,
+                            "experiment"	TEXT,
+                            "iter"	INTEGER,
+                            "result"	REAL
+                            )
+                    """
+            self.database.execute_query(query)
+        finally:
+            self.database.close()
